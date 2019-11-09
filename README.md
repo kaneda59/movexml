@@ -22,7 +22,7 @@ if you have any question contact developper at : fdeprez@fdevelopment.eu
 
 # compatibility
 
-all version of Delphi XE nn
+all versions of Delphi XE nn
 
 if you want to compile in older version of Delphi, changes the uses units
-example: System.SysUtils by System
+example: System.SysUtils by SysUtils
