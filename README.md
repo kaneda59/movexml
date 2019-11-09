@@ -19,3 +19,10 @@ the service scan the path_system between 10 seconds
 file unc are supported
 
 if you have any question contact developper at : fdeprez@fdevelopment.eu
+
+# compatibility
+
+all version of Delphi XE nn
+
+if you want to compile in older version of Delphi, changes the uses units
+example: System.SysUtils by System
