@@ -3,6 +3,6 @@ object MoveXMLsrv: TMoveXMLsrv
   DisplayName = 'MoveXML'
   OnExecute = ServiceExecute
   OnStart = ServiceStart
-  Height = 150
-  Width = 215
+  Height = 217
+  Width = 241
 end
