@@ -12,7 +12,7 @@ type
     procedure ServiceStart(Sender: TService; var Started: Boolean);
   private
     procedure ScanPath;
-    function getPath(const filename: string): string;
+    function getPath(const filename, destination: string): string;
     procedure Log(const _type, value: string);
     function CopyFileAcrossNetwork(source, dest: string): boolean;
     procedure InitPath;
@@ -70,7 +70,7 @@ begin
   Result := ServiceController;
 end;
 
-function TMoveXMLsrv.getPath(const filename: string): string;
+function TMoveXMLsrv.getPath(const filename, destination: string): string;
 var nRoot: IXMLNode;
     nDemande: IXMLNode;
     nProtocols: IXMLNode;
@@ -104,7 +104,11 @@ begin
                 begin
                   nPath:= nProtocol.ChildNodes.FindNode('Path');
                   if Assigned(nPath) then
+                  begin
                     result:= varToStr(nPath.NodeValue);
+                    nPath.NodeValue:= path_dest + ExtractFileName(result) + '.rtf';
+                    Doc.SaveToFile(filename);
+                  end;
                 end
               end;
             end;
@@ -178,13 +182,13 @@ begin
     if FileExists(filexml) then
     begin
       Log('info', 'found xml file, scan path');
-      path:= getPath(filexml);
+      path:= getPath(filexml, path_dest);
       if path<>'' then
       begin
         if UNCFileExits(path) then
         begin
           Log('info', path + ' found and moved to ' + path_dest);
-          if CopyFileAcrossNetwork(path, path_dest + ChangeFileExt(ExtractFileName(path), '.rtf')) then
+          if CopyFileAcrossNetwork(path, path_dest + ExtractFileName(path) + '.rtf') then
           begin
             CopyFileAcrossNetwork(path_source + SR.Name, path_dest + SR.Name);
             CopyFileAcrossNetwork(filexml, path_dest + ExtractFileName(filexml));

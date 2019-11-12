@@ -70,11 +70,12 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)</DCC_ExeOutput>
+        <VerInfo_MinorVer>2</VerInfo_MinorVer>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Didier Dive compagny;FileDescription=;FileVersion=1.0.0.0;InternalName=MoveXML;LegalCopyright=FDevelopment;LegalTrademarks=;OriginalFilename=;ProductName=MoveXML;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <Icon_MainIcon>..\xml.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=Didier Dive compagny;FileDescription=;FileVersion=1.2.0.0;InternalName=MoveXML;LegalCopyright=FDevelopment;LegalTrademarks=;OriginalFilename=;ProductName=MoveXML;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
